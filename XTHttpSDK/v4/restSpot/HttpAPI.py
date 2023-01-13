@@ -466,7 +466,7 @@ class SignedHttpAPI:
         method = "DELETE"
 
         headers, data = get_auth_payload(PayloadObj(
-            _data, XT4PlatConfig.DELETE_OPEN_ORDERS, method))
+            _data, XT4PlatConfig.BATCH_ORDER, method))
         return request(method, XT4PlatConfig.DELETE_OPEN_ORDERS, json=data, headers=headers)
 
     def get_open_order(self, data: dict):
