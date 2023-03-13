@@ -1,23 +1,3 @@
-Metadata-Version: 2.1
-Name: XTApiSDK
-Version: 0.0.2
-Home-page: https://xt-com.github.io/xt4-api/#balance_cnbalanceGet
-Author: Lao Wang
-Author-email: 1125564921@qq.com
-License: BSD
-Classifier: Development Status :: 5 - Production/Stable
-Classifier: Environment :: Web Environment
-Classifier: Intended Audience :: Developers
-Classifier: License :: OSI Approved :: BSD License
-Classifier: Operating System :: OS Independent
-Classifier: Programming Language :: Python
-Classifier: Programming Language :: Python :: 3
-Classifier: Programming Language :: Python :: 3.7
-Classifier: Programming Language :: Python :: 3.8
-Classifier: Programming Language :: Python :: 3.9
-Classifier: Programming Language :: Python :: 3.10
-Requires-Python: >=3.7
-
 # XTHttpAPISDK v0.0.2
 
 ## install
