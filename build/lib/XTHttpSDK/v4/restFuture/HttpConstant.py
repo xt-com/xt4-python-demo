@@ -9,7 +9,7 @@
 # ##################################
 
 XT_VALIDATE_ALGORITHMS = "HmacSHA256"
-XT_VALIDATE_RECVWINDOW = "15000"
+XT_VALIDATE_RECVWINDOW = "5000"
 XT_VALIDATE_CONTENTTYPE_URLENCODE = "application/x-www-form-urlencoded"
 XT_VALIDATE_CONTENTTYPE_JSON = "application/json;charset=UTF-8"
 

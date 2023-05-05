@@ -8,9 +8,9 @@
 
 class XT4PlatWSConfig:
     """ """
-    BASE_URI = "wss://stream.xt.com/public"
+    BASE_URI = "ws://stream.xt-uat.com/public"
 
 
 class XT4PlatWSUserConfig:
     """ """
-    BASE_URI = "wss://stream.xt.com/private"
+    BASE_URI = "ws://stream.xt-uat.com/private"

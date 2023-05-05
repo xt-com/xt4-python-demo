@@ -73,7 +73,6 @@ class Auth:
             param = json.dumps(payload.data)
             Y = "#{}#{}#{}".format(payload.method, path, tmp or param)
             param = payload.data
-
         signature = create_signed(X + Y, self._secretKey)
         header["xt-validate-signature"] = signature
         header["Content-Type"] = decode
@@ -85,7 +84,8 @@ def get_auth_payload(payload) -> dict:
     """ return payload contains request params"""
     if not payload.data.keys() & {"accesskey", "secretkey"}:
         return [None] * 2
-    PUBLIC_KEY, SECRET_KEY = payload.data.pop("accesskey"), payload.data.pop("secretkey")
+    PUBLIC_KEY, SECRET_KEY = payload.data.pop(
+        "accesskey"), payload.data.pop("secretkey")
     auth = Auth(PUBLIC_KEY, SECRET_KEY)
     return auth.create_payload(payload)
 
@@ -93,10 +93,13 @@ def get_auth_payload(payload) -> dict:
 def _request(method, url, **kwargs):
     """ """
     try:
+        # proxy = {"http": "127.0.0.1:7890", "https": "127.0.0.1:7890"}
+        # kwargs.setdefault("proxies", proxy)
         response = requests.request(method, url, **kwargs)
+        # response = requests.request(method, url, verify=False, **kwargs)
         response.raise_for_status()
     except requests.exceptions.RequestException as e:
-        msg = 'Request timeout, content:{t}]........'.format(t=e.response.text)
+        msg = 'Request timeout, content:{t}]........'.format(t=e)
         logger.info(msg)  # NOQA
         return ResponseObj(False, None, msg)
 

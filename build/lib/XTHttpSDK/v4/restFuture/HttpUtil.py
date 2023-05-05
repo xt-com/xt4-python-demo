@@ -48,7 +48,7 @@ class Auth:
         header["xt-validate-algorithms"] = XT_VALIDATE_ALGORITHMS
         header["xt-validate-appkey"] = self._apiKey
         header["xt-validate-recvwindow"] = XT_VALIDATE_RECVWINDOW
-        header["xt-validate-timestamp"] = str(int(time.time() * 1000))
+        header["xt-validate-timestamp"] = str(int(time.time() * 1000) + 1000)
         return header
 
     def create_payload(self, payload: PayloadObj) -> dict:
@@ -68,11 +68,12 @@ class Auth:
 
         if not payload.data:
             param = None
-            Y = "#{}#{}".format(payload.method, path)
+            Y = "#{}".format(path)
         else:
             param = json.dumps(payload.data)
-            Y = "#{}#{}#{}".format(payload.method, path, tmp or param)
+            Y = "#{}#{}".format(path, tmp or param)
             param = payload.data
+
         signature = create_signed(X + Y, self._secretKey)
         header["xt-validate-signature"] = signature
         header["Content-Type"] = decode
@@ -99,7 +100,7 @@ def _request(method, url, **kwargs):
         # response = requests.request(method, url, verify=False, **kwargs)
         response.raise_for_status()
     except requests.exceptions.RequestException as e:
-        msg = 'Request timeout, content:{t}]........'.format(t=e)
+        msg = 'Content:{t}........'.format(t=e)
         logger.info(msg)  # NOQA
         return ResponseObj(False, None, msg)
 

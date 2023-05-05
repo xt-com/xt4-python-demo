@@ -8,6 +8,11 @@ XTApiSDK.egg-info/requires.txt
 XTApiSDK.egg-info/top_level.txt
 XTHttpSDK/__init__.py
 XTHttpSDK/v4/__init__.py
+XTHttpSDK/v4/restFuture/HttpAPI.py
+XTHttpSDK/v4/restFuture/HttpCFG.py
+XTHttpSDK/v4/restFuture/HttpConstant.py
+XTHttpSDK/v4/restFuture/HttpUtil.py
+XTHttpSDK/v4/restFuture/__init__.py
 XTHttpSDK/v4/restSpot/HttpAPI.py
 XTHttpSDK/v4/restSpot/HttpCFG.py
 XTHttpSDK/v4/restSpot/HttpConstant.py

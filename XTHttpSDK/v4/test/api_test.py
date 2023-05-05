@@ -22,8 +22,8 @@ from restSpot.HttpAPI import *  # NOQA
 # publicAPI
 publicAPI = PublicHttpAPI()
 
-accesskey = ""
-sercetkey = ""
+accesskey = "xxxxxxxxxxxxxxxxxxxx"
+sercetkey = "yyyyyyyyyyyyyyyyyyyy"
 signedHttpAPI = SignedHttpAPI(accesskey, sercetkey)
 
 
@@ -283,7 +283,7 @@ class XT4HttpTest(unittest.TestCase):
             "type": "LIMIT",
             "timeInForce": "GTC",
             "bizType": "SPOT",
-            "price": "20009",
+            "price": "29011",
             "quantity": "0.1",
         }
         res = signedHttpAPI.send_order(data)
@@ -488,13 +488,14 @@ class XT4HttpTest(unittest.TestCase):
     def test_get_balance(self):
         """ """
         data = {
-            "currency": "usdt"
+            # "currency": "usdt"
         }
 
         res = signedHttpAPI.get_balance(data)
         self.assertEqual(res.status, True)
         self.assertIsInstance(res.json, dict)
-        print("[test_get_trade]-1", res.status, res.json, "\n")
+        print("[test_get_balance]-1", res.status,
+              res.json, res.response.url, "\n")
 
     @unittest.skip
     def test_get_funds(self):
@@ -567,5 +568,3 @@ if __name__ == "__main__":
 #         }
 #     }
 # }
-
-

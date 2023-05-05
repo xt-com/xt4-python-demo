@@ -8,22 +8,13 @@
 
 
 # Domain
-BASE_URI = "http://sapi.xt-uat.com"
+BASE_URI = "http://sapi.xt-qa.com"
 
 
-class APIMeta(type):
+class XT4PlatConfig(object):
     """ """
 
-    def __getattribute__(self, __name: str):
-        """ """
-        value = BASE_URI + super().__getattribute__(__name)
-        return value
-
-
-class XT4PlatConfig(metaclass=APIMeta):
-    """ """
-
-    # Get currency information 
+    # Get currency information
     GET_COINS_INFO = "/v4/public/currencies"
 
     # Get timestamp from server
@@ -38,7 +29,7 @@ class XT4PlatConfig(metaclass=APIMeta):
     # Get Kline
     GET_KLINE = '/v4/public/kline'
 
-    # Get latest prices ticker 
+    # Get latest prices ticker
     GET_TICKER = "/v4/public/ticker/price"
 
     # Access to 24 hours of trading
@@ -50,7 +41,7 @@ class XT4PlatConfig(metaclass=APIMeta):
     # Get the best pending order ticker
     GET_BEST_TICKER = "/v4/public/ticker/book"
 
-    # Get 24h statistics ticker 
+    # Get 24h statistics ticker
     GET_24H_TICKER = "/v4/public/ticker/24h"
 
     # Get the latest trading depth
