@@ -45,10 +45,10 @@ class Auth:
     def create_header(self):
         """ """
         header = OrderedDict()
-        #header["xt-validate-algorithms"] = XT_VALIDATE_ALGORITHMS
-        header["xt-validate-appkey"] = self._apiKey
-        #header["xt-validate-recvwindow"] = XT_VALIDATE_RECVWINDOW
-        header["xt-validate-timestamp"] = str(int(time.time() * 1000))
+        #header["validate-algorithms"] = XT_VALIDATE_ALGORITHMS
+        header["validate-appkey"] = self._apiKey
+        #header["validate-recvwindow"] = XT_VALIDATE_RECVWINDOW
+        header["validate-timestamp"] = str(int(time.time() * 1000))
         return header
 
     def create_payload(self, payload: PayloadObj) -> dict:
@@ -75,7 +75,7 @@ class Auth:
             param = payload.data
 
         signature = create_signed(X + Y, self._secretKey)
-        header["xt-validate-signature"] = signature
+        header["validate-signature"] = signature
         header["Content-Type"] = decode
 
         return header, param
